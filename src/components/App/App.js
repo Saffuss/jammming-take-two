@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Playlist from '../Playlist/Playlist';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
+import "./App.css";
 import Spotify from '../Spotify';
 
 const initialTracks = [
@@ -14,7 +15,7 @@ function App() {
     const [searchItems, setSearchItems] = useState(initialTracks);
 
     return (
-        <div>
+        <div className='app'>
             <h1>App</h1>
             <SearchBar />
             <SearchResults />

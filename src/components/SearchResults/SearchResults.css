@@ -1,0 +1,3 @@
+.searchResults, .searchResults > * {
+    border: 3px solid salmon;
+}
