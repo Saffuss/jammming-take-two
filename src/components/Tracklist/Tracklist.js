@@ -6,6 +6,8 @@ function Tracklist() {
         <>
             <h3>Tracklist</h3>
             <Track />
+            <Track />
+            <Track />
         </>
     );
 }
