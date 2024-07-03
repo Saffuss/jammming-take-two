@@ -13,13 +13,14 @@ const initialTracks = [
 
 function App() {
     const [searchItems, setSearchItems] = useState(initialTracks);
+    const [tracklistItems, setTracklistItems] = useState([]);
 
     return (
         <div className='app'>
-            <h1>App</h1>
+            <h1>Jammming</h1>
             <SearchBar />
-            <SearchResults />
-            <Playlist />
+            <SearchResults searchItems={searchItems} setSearchItems={setSearchItems} />
+            <Playlist tracklistItems={tracklistItems} setTracklistItems={setTracklistItems} />
         </div>
     );
 }

@@ -3,11 +3,12 @@ import Tracklist from '../Tracklist/Tracklist';
 import PlaylistName from '../PlaylistName/PlaylistName';
 import './Playlist.css';
 
-function Playlist() {
+function Playlist(props) {
     return (
         <div className='playlist'>
             <PlaylistName />
-            <Tracklist />
+            <Tracklist tracklistItems={props.tracklistItems} setTracklistItems={props.setTracklistItems} />
+            <button type='button'>Save to Spotify</button>
         </div>
     );
 }
