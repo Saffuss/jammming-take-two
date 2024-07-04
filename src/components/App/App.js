@@ -6,14 +6,14 @@ import "./App.css";
 import Spotify from '../Spotify';
 
 const initialTracks = [
-    {name: 'Migraine', artist: 'BoyWithUke', album: 'Migraine'},
-    {name: 'Lose Control', artist: 'Teddy Swims', album: 'Lose Control'},
-    {name: 'The Egg (Eggstended)', artist: 'Epic Mountain', album: 'Kurzgesagt, Vol. 6'}
+    {id: 0, name: 'Migraine', artist: 'BoyWithUke', album: 'Migraine'},
+    {id: 1, name: 'Lose Control', artist: 'Teddy Swims', album: 'Lose Control'},
+    {id: 2, name: 'The Egg (Eggstended)', artist: 'Epic Mountain', album: 'Kurzgesagt, Vol. 6'}
 ]
 
 function App() {
     const [searchItems, setSearchItems] = useState(initialTracks);
-    const [tracklistItems, setTracklistItems] = useState([]);
+    const [tracklistItems, setTracklistItems] = useState(initialTracks);
 
     return (
         <div className='app'>

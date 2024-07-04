@@ -6,17 +6,12 @@ function SearchResults(props) {
     return (
         <div className='searchResults'>
             <h2>SearchResults</h2>
-            <p>{props.searchItems[0].name}</p>
                 {props.searchItems.map(track => (
                     <>
-                        <ul>
-                            <li>{track.name}</li>
-                            <li>{track.album}</li>
-                            <li>{track.artist}</li>
-                        </ul>
+                        <Track track={track} key={track.id} />
+                        <button>+</button>
                     </>
                 ))}
-            <Track track={props.searchItems[0]} />
         </div>
     );
 }
