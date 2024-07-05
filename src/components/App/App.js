@@ -19,7 +19,7 @@ function App() {
         <div className='app'>
             <h1>Jammming</h1>
             <SearchBar setSearchItems={setSearchItems} />
-            <SearchResults searchItems={searchItems} />
+            <SearchResults searchItems={searchItems} tracklistItems={tracklistItems} setTracklistItems={setTracklistItems} />
             <Playlist tracklistItems={tracklistItems} setTracklistItems={setTracklistItems} />
         </div>
     );
