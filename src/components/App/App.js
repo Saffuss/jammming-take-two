@@ -18,8 +18,8 @@ function App() {
     return (
         <div className='app'>
             <h1>Jammming</h1>
-            <SearchBar />
-            <SearchResults searchItems={searchItems} setSearchItems={setSearchItems} />
+            <SearchBar setSearchItems={setSearchItems} />
+            <SearchResults searchItems={searchItems} />
             <Playlist tracklistItems={tracklistItems} setTracklistItems={setTracklistItems} />
         </div>
     );
