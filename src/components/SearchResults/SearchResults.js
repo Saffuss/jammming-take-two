@@ -5,19 +5,14 @@ import './SearchResults.css';
 function SearchResults(props) {
 
     function handlePlus(trackToAdd) {
-        for (const alreadyTrack in props.tracklistItems) {
-            if (trackToAdd === alreadyTrack) {
-                return;
-            }
+        const generateRandom = Math.random();
+
+        const trackToAddWithInfo = {
+            ...trackToAdd,
+            info: generateRandom
         }
 
-        props.tracklistItems.forEach((alreadyTrack) => {
-            if (alreadyTrack === trackToAdd) {
-                return;
-            }
-        })
-
-        props.setTracklistItems([...props.tracklistItems, trackToAdd]);
+        props.setTracklistItems([...props.tracklistItems, trackToAddWithInfo]);
     }
 
     return (
