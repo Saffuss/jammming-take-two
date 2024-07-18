@@ -7,8 +7,8 @@ function Playlist(props) {
     return (
         <div className='playlist'>
             <PlaylistName />
-            <Tracklist tracklistItems={props.tracklistItems} setTracklistItems={props.setTracklistItems} />
             <button type='button'>Save to Spotify</button>
+            <Tracklist tracklistItems={props.tracklistItems} setTracklistItems={props.setTracklistItems} />
         </div>
     );
 }

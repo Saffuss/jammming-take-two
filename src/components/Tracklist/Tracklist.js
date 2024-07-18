@@ -13,10 +13,9 @@ function Tracklist(props) {
         <div className='tracklist'>
             <h3>Tracklist</h3>
             {props.tracklistItems.map(track =>(
-                <>
+                <div className='trackWithButton' onClick={() => handleMinus(track)}>
                     <Track track={track} />
-                    <button onClick={() => handleMinus(track)}>-</button>
-                </>
+                </div>
             ))}
         </div>
     );

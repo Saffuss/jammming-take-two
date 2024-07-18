@@ -17,10 +17,12 @@ function App() {
 
     return (
         <div className='app'>
-            <h1>Jammming</h1>
+            <h1 className='title'>Jammming</h1>
             <SearchBar setSearchItems={setSearchItems} />
-            <SearchResults searchItems={searchItems} tracklistItems={tracklistItems} setTracklistItems={setTracklistItems} />
-            <Playlist tracklistItems={tracklistItems} setTracklistItems={setTracklistItems} />
+            <div className='dual'>
+                <SearchResults searchItems={searchItems} tracklistItems={tracklistItems} setTracklistItems={setTracklistItems} />
+                <Playlist tracklistItems={tracklistItems} setTracklistItems={setTracklistItems} />
+            </div>
         </div>
     );
 }
