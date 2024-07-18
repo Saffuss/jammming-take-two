@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Playlist from '../Playlist/Playlist';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
-import "./App.css";
+import "./App.modules.css";
 import Spotify from '../Spotify';
 
 const initialTracks = [

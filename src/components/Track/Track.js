@@ -1,5 +1,5 @@
 import React from 'react';
-import './Track.css';
+import './Track.modules.css';
 
 function Track(props) {
     return (

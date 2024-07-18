@@ -1,7 +1,7 @@
 import React from 'react';
 import Tracklist from '../Tracklist/Tracklist';
 import PlaylistName from '../PlaylistName/PlaylistName';
-import './Playlist.css';
+import './Playlist.modules.css';
 
 function Playlist(props) {
     return (
