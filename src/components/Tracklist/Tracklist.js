@@ -11,7 +11,6 @@ function Tracklist(props) {
 
     return (
         <div className='tracklist'>
-            <h3>Tracklist</h3>
             {props.tracklistItems.map(track =>(
                 <div className='trackWithButton' onClick={() => handleMinus(track)}>
                     <Track track={track} />

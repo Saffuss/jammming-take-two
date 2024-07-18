@@ -1,13 +1,12 @@
 * {
     background-color: black;
-    color: white;
+    color: rebeccapurple;
     border-radius: 1rem;
     text-align: center;
     margin: .3rem;
 }
 
 .app, .app > * {
-    border: 3px solid white;
     background-color: black;
 }
 

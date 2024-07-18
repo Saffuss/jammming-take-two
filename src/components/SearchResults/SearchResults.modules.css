@@ -1,3 +1,5 @@
-.searchResults, .searchResults > * {
-    border: 3px solid salmon;
+.searchResultsTrack {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

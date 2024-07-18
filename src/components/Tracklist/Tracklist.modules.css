@@ -1,6 +1,6 @@
-.tracklist, .tracklist > * {
+/*.tracklist, .tracklist > * {
     border: 3px solid red;
-}
+}*/
 
 .trackWithButton {
     display: flex;
