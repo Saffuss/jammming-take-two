@@ -19,8 +19,8 @@ function SearchResults(props) {
         <div className='searchResults'>
             <h2>SearchResults</h2>
                 {props.searchItems.map(track => (
-                    <div className='searchResultsTrack' onClick={() => handlePlus(track)}>
-                        <Track track={track} key={track.id} />
+                    <div className='searchResultsTrack' key={track.id} onClick={() => handlePlus(track)}>
+                        <Track track={track} />
                     </div>
                 ))}
         </div>

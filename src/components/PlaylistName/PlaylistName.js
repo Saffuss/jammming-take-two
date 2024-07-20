@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 
-function PlaylistName() {
-    const [query, setQuery] = useState('')
+function PlaylistName(props) {
 
     function handleInputChange(event) {
-        setQuery(event.target.value);
+        props.setQuery(event.target.value);
     }
 
     return (
@@ -12,7 +11,7 @@ function PlaylistName() {
             <input
             type='text'
             placeholder='playlist name'
-            value={query}
+            value={props.query}
             onChange={handleInputChange}
             />
         </>

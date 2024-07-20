@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Spotify from '../Spotify.js';
 import './SearchBar.modules.css';
 
 function SearchBar(props) {
@@ -6,10 +7,14 @@ function SearchBar(props) {
 
     function handleInputChange(event) {
         setQuery(event.target.value);
+        event.preventDefault();
     }
 
     function handleSearch() {
-        alert('Search button has been pressed.');
+        Spotify.search(query).then(tracks =>{
+            console.log(tracks);
+            props.setSearchItems(tracks);
+        })
     }
 
     return (

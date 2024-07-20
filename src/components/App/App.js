@@ -12,10 +12,10 @@ const initialTracks = [
 ]
 
 function App() {
-    const [searchItems, setSearchItems] = useState(initialTracks);
-    const [tracklistItems, setTracklistItems] = useState(initialTracks);
+    const [searchItems, setSearchItems] = useState([]);
+    const [tracklistItems, setTracklistItems] = useState([]);
 
-    const uris = tracklistItems.map(t => t.uri);
+    const trackUris = tracklistItems.map(t => t.uri);
 
     return (
         <div className='app'>
@@ -23,8 +23,10 @@ function App() {
             <SearchBar setSearchItems={setSearchItems} />
             <div className='dual'>
                 <SearchResults searchItems={searchItems} tracklistItems={tracklistItems} setTracklistItems={setTracklistItems} />
-                <Playlist tracklistItems={tracklistItems} setTracklistItems={setTracklistItems} />
+                <Playlist trackUris={trackUris} tracklistItems={tracklistItems} setTracklistItems={setTracklistItems} />
             </div>
+            {/*Spotify.getAccessToken()*/}
+            {trackUris[1]}
         </div>
     );
 }
