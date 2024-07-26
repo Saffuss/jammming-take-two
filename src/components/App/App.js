@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import Playlist from '../Playlist/Playlist';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
+import PlaylistList from '../PlaylistList/PlaylistList';
 import "./App.modules.css";
 import Spotify from '../Spotify';
 
 function App() {
     const [searchItems, setSearchItems] = useState([]);
     const [tracklistItems, setTracklistItems] = useState([]);
+    const [playlistListItems, setPlaylistListItems] = useState([]);
 
     const trackUris = tracklistItems.map(t => t.uri);
 
@@ -22,6 +24,7 @@ function App() {
             <div className='dual'>
                 <SearchResults searchItems={searchItems} tracklistItems={tracklistItems} setTracklistItems={setTracklistItems} />
                 <Playlist trackUris={trackUris} tracklistItems={tracklistItems} setTracklistItems={setTracklistItems} />
+                <PlaylistList playlistListItems={playlistListItems} setPlaylistListItems={setPlaylistListItems} />
             </div>
         </div>
     );

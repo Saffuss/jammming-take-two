@@ -139,7 +139,8 @@ const Spotify = {
     .then(response => {
       const playlists = response.items.map(playlist => ({
         name: playlist.name,
-        id: playlist.id
+        id: playlist.id,
+        tracks: playlist.tracks.href
       }))
       return playlists;
     })
