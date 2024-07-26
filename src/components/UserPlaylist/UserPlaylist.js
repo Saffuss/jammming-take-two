@@ -1,11 +1,11 @@
 import React from "react";
-import "./UserPlaylist.module.css";
+import "./UserPlaylist.modules.css";
 
 function UserPlaylist(props) {
     return (
-        <div>
-            <h3>{props.playlist.name}</h3>
-            <p>{props.playlist.tracks}</p>
+        <div className='playlist'>
+            <h3 className="h3">{props.playlist.name}</h3>
+            <p className="p">{props.playlist.tracks}</p>
         </div>
     );
 }
