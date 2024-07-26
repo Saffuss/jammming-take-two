@@ -7,7 +7,6 @@ function Track(props) {
             <h1>{props.track.name}</h1>
             <p>{props.track.artist}</p>
             <p>{props.track.album}</p>
-            <p>{props.track.uri}</p>
         </div>
     );
 }
