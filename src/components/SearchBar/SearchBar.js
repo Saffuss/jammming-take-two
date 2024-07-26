@@ -17,6 +17,12 @@ function SearchBar(props) {
         })
     }
 
+    function handleKeyDown(event) {
+        if (event.key === 'Enter') {
+            handleSearch();
+        }
+    }
+
     return (
         <div className='searchBar'>
             <h2>SearchBar</h2>
@@ -25,6 +31,7 @@ function SearchBar(props) {
             placeholder='Search Songs'
             onChange={handleInputChange}
             value={query}
+            onKeyDown={handleKeyDown}
             />
             <button onClick={handleSearch}>Search</button>
         </div>
