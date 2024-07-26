@@ -1,7 +1,7 @@
 const clientId = '2bb296eed39c4be7bfd5ef153ef3097e'; // Your Spotify client ID
 const redirectUri = 'http://localhost:3000/'; // Your redirect URI
 const scopes = 'playlist-modify-public playlist-modify-private';
-const accessURL = `https://accounts.spotify.com/authorize?response_type=token&client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(scopes)}`
+const accessURL = `https://accounts.spotify.com/authorize?response_type=token&client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(scopes)}`;
 let accessToken;
 
 const Spotify = {
@@ -119,6 +119,21 @@ const Spotify = {
     .catch(error => {
       console.error('Error:', error);
       alert('Error: ' + error);
+    })
+  },
+
+  getPlaylists() {
+    const accessToken = Spotify.getAccessToken();
+    return fetch('https://api.spotify.com/v1/me/playlists', {
+      headers: {
+        'Authorization': `Bearer ${accessToken}`
+      }
+    })
+    .then(response => {
+      if (!response.ok) {
+        alert('Failed to get playlists');
+        throw new Error('Failed to get playlists');
+      }
     })
   }
 };
