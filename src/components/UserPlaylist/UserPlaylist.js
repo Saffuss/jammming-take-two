@@ -1,4 +1,5 @@
 import React from "react";
+import "./UserPlaylist.module.css";
 
 function UserPlaylist(props) {
     return (
