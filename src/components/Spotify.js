@@ -134,6 +134,18 @@ const Spotify = {
         alert('Failed to get playlists');
         throw new Error('Failed to get playlists');
       }
+      return response.json();
+    })
+    .then(response => {
+      const playlists = response.items.map(playlist => ({
+        name: playlist.name,
+        id: playlist.id
+      }))
+      return playlists;
+    })
+    .catch(error => {
+      alert('Error: ' + error);
+      console.error('Error:', error);
     })
   }
 };
