@@ -15,6 +15,7 @@ function Playlist(props) {
 
     return (
         <div className='playlist'>
+            <h2>New Playlist</h2>
             <PlaylistName query={query} setQuery={setQuery} />
             <button type='button' onClick={handleClick}>Save to Spotify</button>
             <Tracklist tracklistItems={props.tracklistItems} setTracklistItems={props.setTracklistItems} />

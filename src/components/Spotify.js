@@ -82,11 +82,7 @@ const Spotify = {
           'Authorization': `Bearer ${accessToken}`,
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-          name: name,
-          description: 'New playlist description',
-          public: false
-        })
+        body: JSON.stringify({name: name})
       })
       .then(response => {
         if (!response.ok) {
@@ -131,7 +127,7 @@ const Spotify = {
     })
     .then(response => {
       if (!response.ok) {
-        alert('Failed to get playlists');
+        //alert('Failed to get playlists');
         throw new Error('Failed to get playlists');
       }
       return response.json();
@@ -145,7 +141,7 @@ const Spotify = {
       return playlists;
     })
     .catch(error => {
-      alert('Error: ' + error);
+      //alert('Error: ' + error);
       console.error('Error:', error);
     })
   }

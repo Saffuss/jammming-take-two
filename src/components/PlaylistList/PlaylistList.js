@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Spotify from '../Spotify';
 import UserPlaylist from "../UserPlaylist/UserPlaylist";
 
@@ -7,13 +7,22 @@ function PlaylistList(props) {
         Spotify.getPlaylists().then(playlists => props.setPlaylistListItems(playlists));
     }
 
+    useEffect(() => {
+        setTimeout(handleClick(), 2000)
+    }, props.playlistListItems);
+
+    function handleMinus(playlistToRemove) {
+        const filterPlaylists = props.playlistListItems.filter((playlist) => playlist !== playlistToRemove);
+        props.setPlaylistListItems(filterPlaylists);
+    }
+
     return (
         <div>
-            <h2>Playlists</h2>
+            <h2>Your Playlists</h2>
             <button type="button" onClick={handleClick}>Get Playlists</button>
                 {props.playlistListItems.map(playlist => (
-                    <div>
-                        <UserPlaylist playlist={playlist} />
+                    <div key={playlist.id}>
+                        <UserPlaylist playlist={playlist} onClick={() => handleMinus(playlist)} />
                     </div>
                 ))}
         </div>
