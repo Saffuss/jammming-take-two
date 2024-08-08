@@ -118,6 +118,30 @@ const Spotify = {
     })
   },
 
+  getTracks(playlistId) {
+    const accessToken = Spotify.getAccessToken();
+
+    return fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
+      headers: {
+        'Authorization': `Bearer ${accessToken}`
+      }
+    })
+    .then(response => {
+      if (!response.ok) {
+        alert('Failed to fetch playlist tracks')
+        throw new Error('Failed to fetch playlist tracks');
+      }
+      return response.json();
+    })
+    .then(response => {
+      const playlistTracks = response.items.map(t => t.track.name);
+      return playlistTracks;
+    })
+    .catch(error => {
+      console.error('Error:', error)
+    });
+  },
+
   getPlaylists() {
     const accessToken = Spotify.getAccessToken();
     return fetch('https://api.spotify.com/v1/me/playlists', {
@@ -132,17 +156,27 @@ const Spotify = {
       }
       return response.json();
     })
-    .then(response => {
-      const playlists = response.items.map(playlist => ({
+    /*.then(response => {
+      const playlistsPromises = response.items.map(playlist => 
+        Spotify.getTracks(playlist.id, accessToken).then(tracks => ({
         name: playlist.name,
         id: playlist.id,
-        tracks: playlist.tracks.href
+        tracks: tracks
       }))
-      return playlists;
-    })
+    );
+      return Promise.all(playlistsPromises);
+    })*/
+   .then(data => {
+    const playlists = data.items.map(playlist => ({
+      name: playlist.name,
+      id: playlist.id
+    }))
+    return playlists;
+   })
     .catch(error => {
       //alert('Error: ' + error);
       console.error('Error:', error);
+      return [];
     })
   }
 };

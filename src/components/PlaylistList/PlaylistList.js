@@ -8,7 +8,7 @@ function PlaylistList(props) {
     }
 
     useEffect(() => {
-        setTimeout(handleClick(), 2000)
+        setTimeout(handleClick, 1000)
     }, props.playlistListItems);
 
     function handleMinus(playlistToRemove) {
@@ -19,7 +19,6 @@ function PlaylistList(props) {
     return (
         <div>
             <h2>Your Playlists</h2>
-            <button type="button" onClick={handleClick}>Get Playlists</button>
                 {props.playlistListItems.map(playlist => (
                     <div key={playlist.id}>
                         <UserPlaylist playlist={playlist} onClick={() => handleMinus(playlist)} />
