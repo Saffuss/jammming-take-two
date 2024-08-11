@@ -118,31 +118,7 @@ const Spotify = {
     })
   },
 
-  getTracks(playlistId) {
-    const accessToken = Spotify.getAccessToken();
-
-    return fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
-      headers: {
-        'Authorization': `Bearer ${accessToken}`
-      }
-    })
-    .then(response => {
-      if (!response.ok) {
-        alert('Failed to fetch playlist tracks')
-        throw new Error('Failed to fetch playlist tracks');
-      }
-      return response.json();
-    })
-    .then(response => {
-      const playlistTracks = response.items.map(t => t.track.name);
-      return playlistTracks;
-    })
-    .catch(error => {
-      console.error('Error:', error)
-    });
-  },
-
-  getPlaylists() {
+   getPlaylists() {
     const accessToken = Spotify.getAccessToken();
     return fetch('https://api.spotify.com/v1/me/playlists', {
       headers: {
@@ -151,21 +127,11 @@ const Spotify = {
     })
     .then(response => {
       if (!response.ok) {
-        //alert('Failed to get playlists');
+        alert('Failed to get playlists');
         throw new Error('Failed to get playlists');
       }
       return response.json();
     })
-    /*.then(response => {
-      const playlistsPromises = response.items.map(playlist => 
-        Spotify.getTracks(playlist.id, accessToken).then(tracks => ({
-        name: playlist.name,
-        id: playlist.id,
-        tracks: tracks
-      }))
-    );
-      return Promise.all(playlistsPromises);
-    })*/
    .then(data => {
     const playlists = data.items.map(playlist => ({
       name: playlist.name,
@@ -173,8 +139,27 @@ const Spotify = {
     }))
     return playlists;
    })
+   .then(playlists => {
+    return Promise.all(playlists.map(playlist => {
+      return fetch(`https://api.spotify.com/v1/playlists/${playlist.id}/tracks`, {
+        headers: {
+          'Authorization': `Bearer ${accessToken}`
+        }
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to get playlist tracks');
+        }
+        return response.json();
+      })
+      .then(data => {
+        playlist.tracks = data.items.map(t => t.track.name);
+        return playlist;
+      })
+    }))
+   })
     .catch(error => {
-      //alert('Error: ' + error);
+      alert('Error: ' + error);
       console.error('Error:', error);
       return [];
     })

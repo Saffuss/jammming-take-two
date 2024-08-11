@@ -9,7 +9,7 @@ function PlaylistList(props) {
 
     useEffect(() => {
         setTimeout(handleClick, 1000)
-    }, props.playlistListItems);
+    }, []);
 
     function handleMinus(playlistToRemove) {
         const filterPlaylists = props.playlistListItems.filter((playlist) => playlist !== playlistToRemove);
