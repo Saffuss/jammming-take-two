@@ -3,12 +3,8 @@ import Spotify from '../Spotify';
 import UserPlaylist from "../UserPlaylist/UserPlaylist";
 
 function PlaylistList(props) {
-    function handleClick() {
-        Spotify.getPlaylists().then(playlists => props.setPlaylistListItems(playlists));
-    }
-
     useEffect(() => {
-        setTimeout(props.retrievePlaylists, 500)
+        props.retrievePlaylists()
     }, []);
 
     function handleMinus(playlistToRemove) {
