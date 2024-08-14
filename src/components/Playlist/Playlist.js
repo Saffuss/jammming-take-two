@@ -10,7 +10,7 @@ function Playlist(props) {
     function handleClick() {
         Spotify.savePlaylist(query, props.trackUris);
         props.setTracklistItems([]);
-        setQuery('')
+        setQuery('');
     }
 
     return (

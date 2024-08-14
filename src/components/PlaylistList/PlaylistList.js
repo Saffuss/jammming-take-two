@@ -8,10 +8,11 @@ function PlaylistList(props) {
     }
 
     useEffect(() => {
-        setTimeout(handleClick, 1000)
+        setTimeout(props.retrievePlaylists, 500)
     }, []);
 
     function handleMinus(playlistToRemove) {
+        Spotify.deletePlaylist(playlistToRemove.id);
         const filterPlaylists = props.playlistListItems.filter((playlist) => playlist !== playlistToRemove);
         props.setPlaylistListItems(filterPlaylists);
     }

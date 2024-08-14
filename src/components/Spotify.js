@@ -163,6 +163,23 @@ const Spotify = {
       console.error('Error:', error);
       return [];
     })
+  },
+
+  deletePlaylist(playlistId) {
+    const accessToken = Spotify.getAccessToken();
+    return fetch(`https://api.spotify.com/v1/playlists/${playlistId}/followers`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${accessToken}`
+      }
+    })
+    .then(response => {
+      if (!response.ok) {
+        alert('Failed to delete playlist');
+        throw new Error('Failed to delete playlist');
+      }
+    })
   }
 };
 

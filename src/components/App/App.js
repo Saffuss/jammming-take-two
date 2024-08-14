@@ -13,6 +13,10 @@ function App() {
 
     const trackUris = tracklistItems.map(t => t.uri);
 
+    function retrievePlaylists() {
+        Spotify.getPlaylists().then(playlists => setPlaylistListItems(playlists));
+    }
+
     useEffect(() => {
         Spotify.getAccessToken();
     })
@@ -23,8 +27,8 @@ function App() {
             <SearchBar setSearchItems={setSearchItems} />
             <div className='dual'>
                 <SearchResults searchItems={searchItems} tracklistItems={tracklistItems} setTracklistItems={setTracklistItems} />
-                <Playlist trackUris={trackUris} tracklistItems={tracklistItems} setTracklistItems={setTracklistItems} />
-                <PlaylistList playlistListItems={playlistListItems} setPlaylistListItems={setPlaylistListItems} />
+                <Playlist trackUris={trackUris} tracklistItems={tracklistItems} setTracklistItems={setTracklistItems} setPlaylistListItems={setPlaylistListItems} retrievePlaylists={retrievePlaylists} />
+                <PlaylistList playlistListItems={playlistListItems} setPlaylistListItems={setPlaylistListItems} retrievePlaylists={retrievePlaylists} />
             </div>
         </div>
     );
