@@ -55,7 +55,7 @@ const Spotify = {
     })
     .catch(error => {
       console.error('Error:', error);
-      alert('Error: ' + error);
+      //alert('Error: ' + error);
     })
   },
 
@@ -114,7 +114,7 @@ const Spotify = {
     })
     .catch(error => {
       console.error('Error:', error);
-      alert('Error: ' + error);
+      //alert('Error: ' + error);
     })
   },
 
@@ -176,7 +176,7 @@ const Spotify = {
     })
     .then(response => {
       if (!response.ok) {
-        alert('Failed to delete playlist');
+        //alert('Failed to delete playlist');
         throw new Error('Failed to delete playlist');
       }
     })

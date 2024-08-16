@@ -12,7 +12,7 @@ function Tracklist(props) {
     return (
         <div className='tracklist'>
             {props.tracklistItems.map(track =>(
-                <div className='trackWithButton' key={Math.floor(Math.random() * 100)} onClick={() => handleMinus(track)}>
+                <div className='trackWithButton' key={track.id} onClick={() => handleMinus(track)}>
                     <Track track={track} />
                 </div>
             ))}

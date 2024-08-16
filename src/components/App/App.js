@@ -19,7 +19,7 @@ function App() {
 
     useEffect(() => {
         Spotify.getAccessToken();
-    })
+    }, [])
 
     return (
         <div className='app'>

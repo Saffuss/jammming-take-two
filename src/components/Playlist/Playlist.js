@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import Tracklist from '../Tracklist/Tracklist';
 import PlaylistName from '../PlaylistName/PlaylistName';
 import './Playlist.modules.css';
@@ -7,11 +7,14 @@ import Spotify from '../Spotify.js';
 function Playlist(props) {
     const [query, setQuery] = useState('');
 
-    function handleClick() {
-        Spotify.savePlaylist(query, props.trackUris);
-        props.setTracklistItems([]);
-        setQuery('');
-    }
+    const handleClick = useCallback(() => {
+        Spotify.savePlaylist(query, props.trackUris)
+        .then(() => {
+            props.setTracklistItems([]);
+            setQuery('');
+            props.retrievePlaylists();
+        });
+    }, [query, props]);
 
     return (
         <div className='playlist'>
